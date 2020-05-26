@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import Spade from "../card/Spade";
 
 export default {
@@ -6,4 +7,12 @@ export default {
   component: Spade
 };
 
-export const SpadeIcon = () => <Spade />;
+const SuitContainer = styled.div`
+  width: 50px;
+`;
+
+export const SpadeIcon = () => (
+  <SuitContainer>
+    <Spade />
+  </SuitContainer>
+);
