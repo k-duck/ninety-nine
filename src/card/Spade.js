@@ -1,14 +1,8 @@
 import React from "react";
+import { uxPalette } from "../common/uxPalette";
 
 const style = {
-  fill: "#00",
-  fillOpacity: 1,
-  fillRule: "evenodd",
-  stroke: "#000000",
-  strokeWidth: "0.2264204pt",
-  strokeLinecap: "butt",
-  strokeLinejoin: "miter",
-  strokeOpacity: 1
+  fill: uxPalette.suit.black
 };
 
 const Spade = () => (
