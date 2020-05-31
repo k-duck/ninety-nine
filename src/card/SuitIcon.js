@@ -7,23 +7,17 @@ import Diamond from "./Diamond";
 import Spade from "./Spade";
 import Club from "./Club";
 
-const SuitIcon = ({ suit }) => {
-  switch (suit) {
-    case SUIT.spades:
-      return <Spade />;
-    case SUIT.hearts:
-      return <Heart />;
-    case SUIT.clubs:
-      return <Club />;
-    case SUIT.diamonds:
-      return <Diamond />;
-    default:
-      return <Spade />;
-  }
-};
+const SuitIcon = ({ suit }) => (
+  <>
+    { suit === SUIT.spades && <Spade /> }
+    { suit === SUIT.hearts && <Heart /> }
+    { suit === SUIT.diamonds && <Diamond /> }
+    { suit === SUIT.clubs && <Club /> }
+  </>
+);
 
 SuitIcon.propTypes = {
-  suit: PropTypes.string
+  suit: PropTypes.oneOf([ SUIT.spades, SUIT.hearts, SUIT.diamonds, SUIT.clubs ])
 };
 
 export default SuitIcon;
