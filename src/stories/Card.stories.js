@@ -15,6 +15,6 @@ const SuitContainer = styled.div`
 
 export const CardIcon = () => (
     <SuitContainer>
-      <Card suit={SUIT.spades} rank={10}/>
+      <Card suit={SUIT.spades} rank={"A"}/>
     </SuitContainer>
 );

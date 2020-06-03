@@ -33,7 +33,7 @@ const SuitContainer = styled.div`
 const SideColumn = ({flipped, suit, rank}) => (
   <ColumnContainer flipped={flipped}>
     <NumberContainer>
-      <CardNumber rank={rank} />
+      <CardNumber rank={rank} suit={suit} />
     </NumberContainer>
     <SuitContainer>
       <SuitIcon suit={suit}/>
