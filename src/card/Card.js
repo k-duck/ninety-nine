@@ -2,31 +2,30 @@ import React from "react";
 import { uxPalette } from "../common/uxPalette";
 import styled from "styled-components";
 
-import SuitIcon from "./SuitIcon";
+import SideColumn from "./SideColumn"
 
-
-const SideCollumn = styled.div`
+const AlignedCard = styled.div`
   display: flex;
-  flex-direction: collumn;
+  height: 100%;
+`;
+
+const CardCenter = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
 `;
 
 const Card = props => (
-    <div>
-        {/* Collumn 1 */}
-        <SideCollumn>
-            {/* <span>{RANK}</span> */}
-            <SuitIcon suit={props.suit}/>
-        </SideCollumn>
-        {/* Collumn 2 */}
-        <div>
+    <AlignedCard>
+      <SideColumn suit={props.suit} rank={props.rank}/>
 
-        </div>
-        {/* Collumn 3 */}
-        <SideCollumn>
-            <SuitIcon suit={props.suit}/>
-            {/* <span>{RANK}</span> */}
-        </SideCollumn>
-    </div>
+      <CardCenter>
+
+      </CardCenter>
+
+      <SideColumn flipped suit={props.suit} rank={props.rank}/>
+    </AlignedCard>
 );
 
 export default Card;

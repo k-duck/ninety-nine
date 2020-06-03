@@ -8,6 +8,13 @@ export default {
   component: Card
 };
 
+const SuitContainer = styled.div`
+  width: 200px;
+  height: 300px;
+`;
+
 export const CardIcon = () => (
-    <Card suit={SUIT.spades}/>
+    <SuitContainer>
+      <Card suit={SUIT.spades} rank={10}/>
+    </SuitContainer>
 );
