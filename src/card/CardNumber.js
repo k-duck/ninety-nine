@@ -3,7 +3,7 @@ import { uxPalette } from "../common/uxPalette";
 import { SUIT } from "./constants";
 
 const textStyle = suit => ({
-  fill: (suit === SUIT.spades || suit == SUIT.clubs) ? "#000" : "#F00"
+  fill: (suit === SUIT.spades || suit == SUIT.clubs) ? uxPalette.suit.black : uxPalette.suit.red
 });
 
 const CardNumber = props => (
