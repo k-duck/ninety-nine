@@ -1,7 +1,8 @@
 import React from "react";
-import { uxPalette } from "../common/uxPalette";
-
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import { suits, ranks } from "./constants";
+
 import SuitIcon from "./SuitIcon";
 import CardNumber from "./CardNumber";
 
@@ -10,7 +11,7 @@ const ColumnContainer = styled.div`
   flex-direction: column;
   width: 20%;
   height: 100%;
-  transform: ${props => props.flipped ? "scale(-1, -1)" : "none"};
+  transform: ${props => (props.flipped ? "scale(-1, -1)" : "none")};
   align-items: center;
 `;
 
@@ -30,16 +31,22 @@ const SuitContainer = styled.div`
   width: 70%;
 `;
 
-const SideColumn = ({flipped, suit, rank}) => (
+const SideColumn = ({ flipped, suit, rank }) => (
   <ColumnContainer flipped={flipped}>
     <NumberContainer>
       <CardNumber rank={rank} suit={suit} />
     </NumberContainer>
     <SuitContainer>
-      <SuitIcon suit={suit}/>
+      <SuitIcon suit={suit} />
     </SuitContainer>
   </ColumnContainer>
-
 );
+
+SideColumn.propTypes = {
+  // I think?
+  flipped: PropTypes.bool,
+  suit: PropTypes.oneOf(suits),
+  rank: PropTypes.oneOf(ranks)
+};
 
 export default SideColumn;

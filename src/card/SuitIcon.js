@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { SUIT } from "./constants";
+import { SUIT, suits } from "./constants";
 
 import Heart from "./Heart";
 import Diamond from "./Diamond";
@@ -9,15 +9,15 @@ import Club from "./Club";
 
 const SuitIcon = ({ suit }) => (
   <>
-    { suit === SUIT.spades && <Spade /> }
-    { suit === SUIT.hearts && <Heart /> }
-    { suit === SUIT.diamonds && <Diamond /> }
-    { suit === SUIT.clubs && <Club /> }
+    {suit === SUIT.spades && <Spade />}
+    {suit === SUIT.hearts && <Heart />}
+    {suit === SUIT.diamonds && <Diamond />}
+    {suit === SUIT.clubs && <Club />}
   </>
 );
 
 SuitIcon.propTypes = {
-  suit: PropTypes.oneOf([ SUIT.spades, SUIT.hearts, SUIT.diamonds, SUIT.clubs ])
+  suit: PropTypes.oneOf(suits)
 };
 
 export default SuitIcon;
