@@ -5,6 +5,7 @@ import { suits, ranks } from "./constants";
 
 import SuitIcon from "./SuitIcon";
 import CardNumber from "./CardNumber";
+import AspectRatioBox from "./AspectRatioBox";
 
 const ColumnContainer = styled.div`
   display: flex;
@@ -15,27 +16,27 @@ const ColumnContainer = styled.div`
   align-items: center;
 `;
 
-const NumberContainer = styled.div`
-  width: 100%;
-  padding-top: 128.6%;
-  position: relative;
-  & div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-`;
+// const NumberContainer = styled.div`
+//   width: 100%;
+//   height: 100%
+//   position: relative;
+//   & div {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//   }
+// `;
 const SuitContainer = styled.div`
   width: 70%;
 `;
 
 const SideColumn = ({ flipped, suit, rank }) => (
   <ColumnContainer flipped={flipped}>
-    <NumberContainer>
+    <AspectRatioBox ratio={18 / 14}>
       <CardNumber rank={rank} suit={suit} />
-    </NumberContainer>
+    </AspectRatioBox>
     <SuitContainer>
       <SuitIcon suit={suit} />
     </SuitContainer>
