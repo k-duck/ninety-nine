@@ -1,8 +1,8 @@
 import React from "react";
-import { uxPalette } from "../common/uxPalette";
 import styled from "styled-components";
-
-import SideColumn from "./SideColumn"
+import PropTypes from "prop-types";
+import { suits, ranks } from "./constants";
+import SideColumn from "./SideColumn";
 
 const AlignedCard = styled.div`
   display: flex;
@@ -16,16 +16,19 @@ const CardCenter = styled.div`
   height: 100%;
 `;
 
-const Card = props => (
-    <AlignedCard>
-      <SideColumn suit={props.suit} rank={props.rank}/>
+const Card = ({ suit, rank }) => (
+  <AlignedCard>
+    <SideColumn suit={suit} rank={rank} />
 
-      <CardCenter>
+    <CardCenter></CardCenter>
 
-      </CardCenter>
-
-      <SideColumn flipped suit={props.suit} rank={props.rank}/>
-    </AlignedCard>
+    <SideColumn flipped suit={suit} rank={rank} />
+  </AlignedCard>
 );
+
+Card.propTypes = {
+  suit: PropTypes.oneOf(suits),
+  rank: PropTypes.oneOf(ranks)
+};
 
 export default Card;
