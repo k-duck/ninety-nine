@@ -1,3 +1,5 @@
+export const cardRatio = 1.3;
+
 export const SUIT = {
   hearts: "hearts",
   spades: "spades",

@@ -1,13 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { suits, ranks } from "./constants";
+import { uxPalette } from "../common/uxPalette";
+import { SUIT, suits, ranks, cardRatio } from "./constants";
 import SideColumn from "./SideColumn";
+import AspectRatioBox from "./AspectRatioBox";
 
-const AlignedCard = styled.div`
+const CardContent = styled.div`
   display: flex;
   height: 100%;
+  border: 5% solid black;
+  border-radius: 5%;
+  background-color: white;
 `;
+
+const Border = styled.div`
+  height: 100%;
+  border-radius: 8%;
+  padding: 3%;
+`;
+
+const BorderColor = suit => ({
+  backgroundColor:
+    suit === SUIT.spades || suit === SUIT.clubs
+      ? uxPalette.suit.black
+      : uxPalette.suit.red
+});
 
 const CardCenter = styled.div`
   display: flex;
@@ -17,13 +35,17 @@ const CardCenter = styled.div`
 `;
 
 const Card = ({ suit, rank }) => (
-  <AlignedCard>
-    <SideColumn suit={suit} rank={rank} />
+  <AspectRatioBox ratio={cardRatio}>
+    <Border style={BorderColor(suit)}>
+      <CardContent>
+        <SideColumn suit={suit} rank={rank} />
 
-    <CardCenter></CardCenter>
+        <CardCenter></CardCenter>
 
-    <SideColumn flipped suit={suit} rank={rank} />
-  </AlignedCard>
+        <SideColumn flipped suit={suit} rank={rank} />
+      </CardContent>
+    </Border>
+  </AspectRatioBox>
 );
 
 Card.propTypes = {
