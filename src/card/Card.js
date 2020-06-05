@@ -6,7 +6,7 @@ import { SUIT, suits, ranks, cardRatio } from "./constants";
 import SideColumn from "./SideColumn";
 import AspectRatioBox from "./AspectRatioBox";
 
-const AlignedCard = styled.div`
+const CardContent = styled.div`
   display: flex;
   height: 100%;
   border: 5% solid black;
@@ -37,13 +37,13 @@ const CardCenter = styled.div`
 const Card = ({ suit, rank }) => (
   <AspectRatioBox ratio={cardRatio}>
     <Border style={BorderColor(suit)}>
-      <AlignedCard>
+      <CardContent>
         <SideColumn suit={suit} rank={rank} />
 
         <CardCenter></CardCenter>
 
         <SideColumn flipped suit={suit} rank={rank} />
-      </AlignedCard>
+      </CardContent>
     </Border>
   </AspectRatioBox>
 );
