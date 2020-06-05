@@ -1,10 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import logo from "./logo.svg";
+import "./App.css";
+
+const StyledApp = styled.div`
+  position: relative;
+`;
 
 function App() {
   return (
-    <div className="App">
+    <StyledApp className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,7 +24,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </StyledApp>
   );
 }
 
