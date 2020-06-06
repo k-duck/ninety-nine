@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { uxPalette } from "../common/uxPalette";
 import { SUIT, suits, ranks } from "./constants";
 
@@ -10,9 +11,13 @@ const textStyle = suit => ({
       : uxPalette.suit.red
 });
 
+const NumberContainer = styled.div`
+  height: 100%;
+`;
+
 const CardNumber = ({ suit, rank }) => (
-  <div>
-    <svg style={{ height: "100%" }} viewBox="0 0 14 18">
+  <NumberContainer>
+    <svg viewBox="0 0 14 18">
       <text
         style={textStyle(suit)}
         x="50%"
@@ -23,7 +28,7 @@ const CardNumber = ({ suit, rank }) => (
         {rank}
       </text>
     </svg>
-  </div>
+  </NumberContainer>
 );
 
 CardNumber.propTypes = {
