@@ -5,6 +5,7 @@ import { uxPalette } from "../common/uxPalette";
 import { SUIT, suits, ranks, cardRatio } from "./constants";
 import SideColumn from "./SideColumn";
 import AspectRatioBox from "./AspectRatioBox";
+import CenterDesign from "./CenterDesign";
 
 const CardContent = styled.div`
   display: flex;
@@ -40,7 +41,9 @@ const Card = ({ suit, rank }) => (
       <CardContent>
         <SideColumn suit={suit} rank={rank} />
 
-        <CardCenter></CardCenter>
+        <CardCenter>
+          <CenterDesign rank={rank} suit={suit} />
+        </CardCenter>
 
         <SideColumn flipped suit={suit} rank={rank} />
       </CardContent>
