@@ -20,8 +20,8 @@ const IconContainer = styled.div`
 const IconColumn = ({ layout, suit }) => (
   <ColumnContainer number={layout.length}>
     {layout.map((flipped, idx) => (
-      <IconContainer flipped={flipped}>
-        <SuitIcon key={idx} suit={suit} />
+      <IconContainer key={idx} flipped={flipped}>
+        <SuitIcon suit={suit} />
       </IconContainer>
     ))}
   </ColumnContainer>
