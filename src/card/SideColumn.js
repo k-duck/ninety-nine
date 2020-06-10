@@ -32,7 +32,6 @@ const SideColumn = ({ flipped, suit, rank }) => (
 );
 
 SideColumn.propTypes = {
-  // I think?
   flipped: PropTypes.bool,
   suit: PropTypes.oneOf(suits),
   rank: PropTypes.oneOf(ranks)
