@@ -6,7 +6,7 @@ import { suits } from "../constants";
 
 const SizeContainer = styled.div`
   height: 100%;
-  padding: 33.3%;
+  padding: 25% 33.3%;
 `;
 
 const ThreeDesign = ({ suit }) => (
