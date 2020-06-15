@@ -19,6 +19,7 @@ export const RANK = {
   seven: 7,
   eight: 8,
   nine: 9,
+  ten: 10,
   jack: "J",
   queen: "Q",
   king: "K"
@@ -34,6 +35,7 @@ export const ranks = [
   RANK.seven,
   RANK.eight,
   RANK.nine,
+  RANK.ten,
   RANK.jack,
   RANK.queen,
   RANK.king
