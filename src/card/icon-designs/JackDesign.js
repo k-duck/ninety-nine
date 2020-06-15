@@ -18,7 +18,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const FourDesign = ({ suit }) => (
+const JackDesign = ({ suit }) => (
   <Container>
     <svg style={{ width: "100%" }} viewBox="0 0 58.799557 102.90945">
       <g transform="translate(-76.433604,-92.086922)">
@@ -31,8 +31,8 @@ const FourDesign = ({ suit }) => (
   </Container>
 );
 
-FourDesign.propTypes = {
+JackDesign.propTypes = {
   suit: PropTypes.oneOf(suits)
 };
 
-export default FourDesign;
+export default JackDesign;

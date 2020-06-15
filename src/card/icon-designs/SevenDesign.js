@@ -27,7 +27,6 @@ const CustomColumn = styled.div`
 
 const IconContainer = styled.div`
   width: 100%;
-  // padding-bottom: 33.3%;
 `;
 
 const InvisibleContainer = styled.div`

@@ -16,7 +16,7 @@ const InnerContainer = styled.div`
   height: 100%;
 `;
 
-const FiveDesign = ({ suit }) => (
+const NineDesign = ({ suit }) => (
   <OuterContainer>
     <InnerContainer>
       <IconColumn suit={suit} layout={[false, false, true, true]} />
@@ -30,8 +30,8 @@ const FiveDesign = ({ suit }) => (
   </OuterContainer>
 );
 
-FiveDesign.propTypes = {
+NineDesign.propTypes = {
   suit: PropTypes.oneOf(suits)
 };
 
-export default FiveDesign;
+export default NineDesign;
