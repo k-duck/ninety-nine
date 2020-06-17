@@ -15,10 +15,16 @@ const InnerBox = styled.div`
   right: 0;
 `;
 
+const OuterBox = styled.div`
+  width: 100%;
+`;
+
 const AspectRatioBox = ({ ratio, children }) => (
-  <BoxContainer ratio={ratio}>
-    <InnerBox>{children}</InnerBox>
-  </BoxContainer>
+  <OuterBox>
+    <BoxContainer ratio={ratio}>
+      <InnerBox>{children}</InnerBox>
+    </BoxContainer>
+  </OuterBox>
 );
 
 AspectRatioBox.propTypes = {
