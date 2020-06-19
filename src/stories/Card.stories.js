@@ -37,6 +37,7 @@ export const CardIcon = () => {
       <Card
         suit={select(suitLabel, suitOptions, SUIT.spades)}
         rank={select(rankLabel, rankOptions, "A")}
+        faceUp
       />
     </SuitContainer>
   );

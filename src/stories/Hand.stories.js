@@ -40,11 +40,11 @@ const Container = styled.div`
 `;
 
 export const HandThing = () => {
-  const width = number(widthLabel, 200, numberOptions);
+  const width = number(widthLabel, 600, numberOptions);
 
   return (
     <Container width={`${width}px`} height={`${(width * 300) / 200}px`}>
-      <Hand cards={hand} />
+      <Hand cards={hand} faceUp />
     </Container>
   );
 };
