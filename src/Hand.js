@@ -10,11 +10,11 @@ const Container = styled.div`
   padding-right: 5px;
 `;
 
-const Hand = ({ cards }) => (
+const Hand = ({ cards, faceUp }) => (
   <>
     {cards.map(({ suit, rank }) => (
       <Container>
-        <Card suit={suit} rank={rank} />
+        <Card suit={suit} rank={rank} faceUp={faceUp} />
       </Container>
     ))}
   </>
@@ -26,7 +26,8 @@ Hand.propTypes = {
       rank: PropTypes.oneOf(ranks),
       suit: PropTypes.oneOf(suits)
     })
-  )
+  ),
+  faceUp: PropTypes.bool
 };
 
 export default Hand;

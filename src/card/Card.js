@@ -35,25 +35,42 @@ const CardCenter = styled.div`
   height: 100%;
 `;
 
-const Card = ({ suit, rank }) => (
+const CardBack = styled.div`
+  background: url(
+    data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAO0lEQVQoU82OwQkAIBDD0qHPIXToCIrgwwHsr5CGxirpnZUEqrh7VGkNxgDd4NU38FgeUwRfy2PKBx8mcIJFxUA0lXIAAAAASUVORK5CYII=
+     )
+    repeat;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
+`;
+
+const Card = ({ suit, rank, faceUp }) => (
   <AspectRatioBox ratio={cardRatio}>
-    <Border style={BorderColor(suit)}>
-      <CardContent>
-        <SideColumn suit={suit} rank={rank} />
+    {faceUp === true ? (
+      <Border style={BorderColor(suit)}>
+        <CardContent>
+          <SideColumn suit={suit} rank={rank} />
 
-        <CardCenter>
-          <CenterDesign rank={rank} suit={suit} />
-        </CardCenter>
+          <CardCenter>
+            <CenterDesign rank={rank} suit={suit} />
+          </CardCenter>
 
-        <SideColumn flipped suit={suit} rank={rank} />
-      </CardContent>
-    </Border>
+          <SideColumn flipped suit={suit} rank={rank} />
+        </CardContent>
+      </Border>
+    ) : (
+      <Border style={BorderColor(SUIT.hearts)}>
+        <CardBack />
+      </Border>
+    )}
   </AspectRatioBox>
 );
 
 Card.propTypes = {
   suit: PropTypes.oneOf(suits),
-  rank: PropTypes.oneOf(ranks)
+  rank: PropTypes.oneOf(ranks),
+  faceUp: PropTypes.bool
 };
 
 export default Card;
