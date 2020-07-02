@@ -5,9 +5,8 @@ import Card from "./card/Card";
 import { suits, ranks } from "./card/constants";
 
 const Container = styled.div`
-  width: 100%;
+  width: 32%;
   height: 100%;
-  padding-right: 5px;
 `;
 
 const Hand = ({ cards, faceUp }) => (

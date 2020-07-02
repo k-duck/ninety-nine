@@ -15,7 +15,10 @@ const PlayerContainer = styled.div`
 
 const HandContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  position: relative;
+  transform: translateY(${props => (props.active ? "0" : "50%")});
+  transition: transform 0.5s;
 `;
 
 const PlayerInfo = styled.div`
@@ -27,6 +30,7 @@ const PlayerInfo = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  z-index: 1;
 `;
 
 const PlayerIconContainer = styled.div`
@@ -67,7 +71,7 @@ const PlayerName = styled.span`
 
 const Player = ({ cards, coins, user, active }) => (
   <PlayerContainer user={user}>
-    <HandContainer>
+    <HandContainer active={active}>
       <Hand cards={cards} faceUp={!!user} />
     </HandContainer>
     <PlayerInfo active={active}>
