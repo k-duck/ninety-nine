@@ -24,7 +24,7 @@ const coinLabel = "Coins";
 const hand = [
   {
     suit: SUIT.hearts,
-    rank: RANK.four
+    rank: RANK.nine
   },
   {
     suit: SUIT.clubs,
