@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { withKnobs, number } from "@storybook/addon-knobs";
-import Hand from "../Hand";
+import Hand from "../hand/Hand";
 import { SUIT, RANK } from "../card/constants";
 
 export default {
