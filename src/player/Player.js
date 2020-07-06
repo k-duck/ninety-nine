@@ -10,7 +10,6 @@ const PlayerContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  // width: ${props => (props.user ? "175%" : "160%")};
 `;
 
 const HandContainer = styled.div`
