@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Hand from "../Hand";
+import Hand from "../hand/Hand";
 import Coin from "./Coin";
 import AspectRatioBox from "../card/AspectRatioBox";
 import { suits, ranks } from "../card/constants";
@@ -10,7 +10,6 @@ const PlayerContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: ${props => (props.user ? "300px" : "150px")};
 `;
 
 const HandContainer = styled.div`
@@ -60,7 +59,7 @@ const CoinsContainer = styled.div`
 `;
 
 const CoinContainer = styled.div`
-  width: ${props => (props.user ? "35px" : "15px")};
+  width: 30%;
 `;
 
 const PlayerName = styled.span`
@@ -84,9 +83,7 @@ const Player = ({ cards, coins, user, active }) => (
         </AspectRatioBox>
       </PlayerIconContainer>
       <NameCoinsWrapper>
-        <PlayerName user={user} active={active}>
-          Emberfire
-        </PlayerName>
+        <PlayerName user={user} active={active}></PlayerName>
         <CoinsContainer>
           {coins === 0 && (
             <CoinContainer user={user}>
