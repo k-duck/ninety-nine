@@ -27,76 +27,88 @@ const hand = [
 
 const players = [
   {
+    name: "Emberfire",
     user: true,
+    active: false,
+    cards: hand,
+    coins: 3
+  },
+  {
+    name: "Renegade22",
+    user: false,
+    active: false,
+    cards: hand,
+    coins: 3
+  },
+  {
+    name: "NotAMoron",
+    user: false,
+    active: false,
+    cards: hand,
+    coins: 1
+  },
+  {
+    name: "Noob",
+    user: false,
+    active: false,
+    cards: hand,
+    coins: 0
+  },
+  {
+    name: "Yourself101010",
+    user: false,
+    active: false,
+    cards: hand,
+    coins: 2
+  },
+  {
+    name: "Thrillho",
+    user: false,
     active: true,
     cards: hand,
-    coins: 3
+    coins: 1
   },
   {
+    name: "Tsunami",
     user: false,
     active: false,
     cards: hand,
     coins: 3
   },
   {
+    name: "SaturnDragon",
     user: false,
     active: false,
     cards: hand,
     coins: 3
   },
   {
+    name: "Maggots",
+    user: false,
+    active: false,
+    cards: hand,
+    coins: 2
+  },
+  {
+    name: "AllSoldiers",
     user: false,
     active: false,
     cards: hand,
     coins: 3
   },
   {
+    name: "Aw Man",
     user: false,
     active: false,
     cards: hand,
-    coins: 3
+    coins: 1
   },
   {
+    name: "Emberfire 2",
     user: false,
     active: false,
     cards: hand,
-    coins: 3
-  },
-  {
-    user: false,
-    active: false,
-    cards: hand,
-    coins: 3
-  },
-  {
-    user: false,
-    active: false,
-    cards: hand,
-    coins: 3
-  },
-  {
-    user: false,
-    active: false,
-    cards: hand,
-    coins: 3
-  },
-  {
-    user: false,
-    active: false,
-    cards: hand,
-    coins: 3
-  },
-  {
-    user: false,
-    active: false,
-    cards: hand,
-    coins: 3
-  },
-  {
-    user: false,
-    active: false,
-    cards: hand,
-    coins: 3
+    coins: 2
   }
 ];
 

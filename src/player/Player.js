@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import ScaleText from "react-scale-text";
 import Hand from "../hand/Hand";
 import Coin from "./Coin";
 import AspectRatioBox from "../card/AspectRatioBox";
@@ -53,22 +54,32 @@ const NameCoinsWrapper = styled.div`
 const CoinsContainer = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
   padding: 0 15%;
   box-sizing: border-box;
 `;
 
 const CoinContainer = styled.div`
   width: 30%;
+  padding-right: 3%;
 `;
 
 const PlayerName = styled.span`
   color: ${props => (props.active ? "White" : "Black")};
-  font-size: ${props => (props.user ? "35px" : "15px")};
-  padding-bottom: 3%;
+  padding: 0 3%;
+  white-space: nowrap;
 `;
 
-const Player = ({ cards, coins, user, active }) => (
+const CenteredContent = styled.div`
+  width: 100%;
+  height: 100%;
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const Player = ({ cards, coins, user, active, name }) => (
   <PlayerContainer user={user}>
     <HandContainer active={active}>
       <Hand cards={cards} faceUp={!!user} />
@@ -83,7 +94,11 @@ const Player = ({ cards, coins, user, active }) => (
         </AspectRatioBox>
       </PlayerIconContainer>
       <NameCoinsWrapper>
-        <PlayerName user={user} active={active}></PlayerName>
+        <CenteredContent>
+          <ScaleText>
+            <PlayerName active={active}>{name}</PlayerName>
+          </ScaleText>
+        </CenteredContent>
         <CoinsContainer>
           {coins === 0 && (
             <CoinContainer user={user}>
@@ -111,7 +126,8 @@ Player.propTypes = {
   ),
   coins: PropTypes.number,
   user: PropTypes.bool,
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  name: PropTypes.string
 };
 
 export default Player;

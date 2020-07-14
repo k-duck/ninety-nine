@@ -39,6 +39,7 @@ const hand = [
 export const PlayerStory = () => (
   <Container>
     <Player
+      name="Emberfire"
       cards={hand}
       user={select(userLabel, userOptions, "user")}
       coins={select(coinLabel, coinOptions, 3)}
