@@ -58,12 +58,18 @@ const Table = ({ players }) => (
   <TableContainer>
     <AspectRatioBox ratio={0.5}>
       <TableShape>
-        {players.map(({ user, cards, active, coins }, idx) => (
+        {players.map(({ user, cards, active, coins, name }, idx) => (
           <PlayerContainer
             user={user}
             seat={seatingChart[players.length - 2][idx]}
           >
-            <Player cards={cards} user={user} active={active} coins={coins} />
+            <Player
+              cards={cards}
+              user={user}
+              active={active}
+              coins={coins}
+              name={name}
+            />
           </PlayerContainer>
         ))}
       </TableShape>
