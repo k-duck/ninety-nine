@@ -2,7 +2,7 @@ import React from "react";
 import { withKnobs, select, number } from "@storybook/addon-knobs";
 import styled from "styled-components";
 import Card from "../card/Card";
-import { SUIT } from "../card/constants";
+import { SUIT } from "../cardDeck/constants";
 
 export default {
   title: "Card",

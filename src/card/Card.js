@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { uxPalette } from "../common/uxPalette";
-import { SUIT, suits, ranks, cardRatio } from "./constants";
+import { SUIT, suits, ranks, cardRatio } from "../cardDeck/constants";
 import SideColumn from "./SideColumn";
 import AspectRatioBox from "./AspectRatioBox";
 import CenterDesign from "./CenterDesign";

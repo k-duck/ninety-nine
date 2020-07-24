@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import IconColumn from "../IconColumn";
 import SuitIcon from "../SuitIcon";
-import { suits } from "../constants";
+import { suits } from "../../cardDeck/constants";
 
 const OuterContainer = styled.div`
   height: 100%;

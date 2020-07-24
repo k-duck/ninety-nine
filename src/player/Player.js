@@ -5,7 +5,7 @@ import ScaleText from "react-scale-text";
 import Hand from "../hand/Hand";
 import Coin from "./Coin";
 import AspectRatioBox from "../card/AspectRatioBox";
-import { suits, ranks } from "../card/constants";
+import { suits, ranks } from "../cardDeck/constants";
 
 const PlayerContainer = styled.div`
   display: flex;

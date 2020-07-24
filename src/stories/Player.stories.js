@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { withKnobs, select } from "@storybook/addon-knobs";
 import Player from "../player/Player";
-import { SUIT, RANK } from "../card/constants";
+import { SUIT, RANK } from "../cardDeck/constants";
 
 export default {
   title: "Player",

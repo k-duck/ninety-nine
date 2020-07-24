@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { SUIT, suits } from "./constants";
+import { SUIT, suits } from "../cardDeck/constants";
 
 import Heart from "./Heart";
 import Diamond from "./Diamond";

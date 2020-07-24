@@ -6,7 +6,7 @@ import AspectRatioBox from "../card/AspectRatioBox";
 
 const seatingChart = [
   [0, 6],
-  [0, 4, 5],
+  [0, 4, 8],
   [0, 3, 6, 9],
   [0, 2, 5, 7, 10],
   [0, 2, 4, 6, 8, 10],

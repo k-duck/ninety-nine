@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Card from "../card/Card";
-import { suits, ranks } from "../card/constants";
+import { suits, ranks } from "../cardDeck/constants";
 
 const Container = styled.div`
   width: 32%;

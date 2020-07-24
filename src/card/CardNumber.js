@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { uxPalette } from "../common/uxPalette";
-import { SUIT, suits, ranks } from "./constants";
+import { SUIT, suits, ranks } from "../cardDeck/constants";
 
 const textStyle = suit => ({
   fill:
