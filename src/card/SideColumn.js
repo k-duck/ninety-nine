@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { suits, ranks } from "./constants";
+import { suits, ranks } from "../cardDeck/constants";
 
 import SuitIcon from "./SuitIcon";
 import CardNumber from "./CardNumber";

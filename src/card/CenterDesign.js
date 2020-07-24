@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { RANK, ranks, suits } from "./constants";
+import { RANK, ranks, suits } from "../cardDeck/constants";
 
 import AceDesign from "./icon-designs/AceDesign";
 import TwoDesign from "./icon-designs/TwoDesign";

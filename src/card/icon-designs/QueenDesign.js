@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { uxPalette } from "../../common/uxPalette";
-import { suits, SUIT } from "../constants";
+import { suits, SUIT } from "../../cardDeck/constants";
 
 const iconColor = suit => ({
   fill:

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import IconColumn from "../card/IconColumn";
-import { SUIT } from "../card/constants";
+import { SUIT } from "../cardDeck/constants";
 
 export default {
   title: "IconColumn",
