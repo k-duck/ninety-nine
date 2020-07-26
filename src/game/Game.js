@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "../table/Table";
 import CardDeck from "../cardDeck/CardDeck";
+import { GameContext } from "./GameContext";
 
 const initialPlayers = [
   {
@@ -32,6 +33,10 @@ const Game = () => {
   const [players, setPlayers] = React.useState(initialPlayers);
   const [gameStarted, setGameStarted] = React.useState(false);
 
+  const playCard = card => {
+    console.log({ card });
+  };
+
   React.useEffect(() => {
     if (!gameStarted) {
       const newPlayers = [...initialPlayers];
@@ -45,7 +50,11 @@ const Game = () => {
     }
   }, [gameStarted]);
 
-  return <Table players={players}></Table>;
+  return (
+    <GameContext.Provider value={{ playCard }}>
+      <Table players={players}></Table>
+    </GameContext.Provider>
+  );
 };
 
 export default Game;

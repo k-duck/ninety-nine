@@ -6,6 +6,7 @@ import { SUIT, suits, ranks, cardRatio } from "../cardDeck/constants";
 import SideColumn from "./SideColumn";
 import AspectRatioBox from "./AspectRatioBox";
 import CenterDesign from "./CenterDesign";
+import { GameContext } from "../game/GameContext";
 
 const CardContent = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const Border = styled.div`
   height: 100%;
   border-radius: 8%;
   padding: 3%;
+  cursor: ${props => (props.clickable ? "pointer" : "auto")};
 `;
 
 const BorderColor = suit => ({
@@ -45,32 +47,41 @@ const CardBack = styled.div`
   border-radius: 5%;
 `;
 
-const Card = ({ suit, rank, faceUp }) => (
-  <AspectRatioBox ratio={cardRatio}>
-    {faceUp === true ? (
-      <Border style={BorderColor(suit)}>
-        <CardContent>
-          <SideColumn suit={suit} rank={rank} />
+const Card = ({ suit, rank, faceUp, active }) => {
+  const { playCard } = React.useContext(GameContext);
 
-          <CardCenter>
-            <CenterDesign rank={rank} suit={suit} />
-          </CardCenter>
+  return (
+    <AspectRatioBox ratio={cardRatio}>
+      {faceUp === true ? (
+        <Border
+          style={BorderColor(suit)}
+          onClick={active ? () => playCard({ rank, suit }) : undefined}
+          clickable={active}
+        >
+          <CardContent>
+            <SideColumn suit={suit} rank={rank} />
 
-          <SideColumn flipped suit={suit} rank={rank} />
-        </CardContent>
-      </Border>
-    ) : (
-      <Border style={BorderColor(SUIT.hearts)}>
-        <CardBack />
-      </Border>
-    )}
-  </AspectRatioBox>
-);
+            <CardCenter>
+              <CenterDesign rank={rank} suit={suit} />
+            </CardCenter>
+
+            <SideColumn flipped suit={suit} rank={rank} />
+          </CardContent>
+        </Border>
+      ) : (
+        <Border style={BorderColor(SUIT.hearts)}>
+          <CardBack />
+        </Border>
+      )}
+    </AspectRatioBox>
+  );
+};
 
 Card.propTypes = {
   suit: PropTypes.oneOf(suits),
   rank: PropTypes.oneOf(ranks),
-  faceUp: PropTypes.bool
+  faceUp: PropTypes.bool,
+  active: PropTypes.bool
 };
 
 export default Card;

@@ -9,11 +9,11 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const Hand = ({ cards, faceUp }) => (
+const Hand = ({ cards, faceUp, active }) => (
   <>
     {cards.map(({ suit, rank }) => (
-      <Container>
-        <Card suit={suit} rank={rank} faceUp={faceUp} />
+      <Container key={`${rank}${suit}`}>
+        <Card suit={suit} rank={rank} faceUp={faceUp} active={active} />
       </Container>
     ))}
   </>
@@ -26,7 +26,8 @@ Hand.propTypes = {
       suit: PropTypes.oneOf(suits)
     })
   ),
-  faceUp: PropTypes.bool
+  faceUp: PropTypes.bool,
+  active: PropTypes.bool
 };
 
 export default Hand;

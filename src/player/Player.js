@@ -82,7 +82,7 @@ const CenteredContent = styled.div`
 const Player = ({ cards, coins, user, active, name }) => (
   <PlayerContainer user={user}>
     <HandContainer active={active}>
-      <Hand cards={cards} faceUp={!!user} />
+      <Hand cards={cards} faceUp={!!user} active={active} />
     </HandContainer>
     <PlayerInfo active={active}>
       <PlayerIconContainer>
@@ -107,8 +107,8 @@ const Player = ({ cards, coins, user, active, name }) => (
           )}
           {coins > 0 &&
             [...Array(coins)].map((num, idx) => (
-              <CoinContainer user={user}>
-                <Coin key={idx} />
+              <CoinContainer user={user} key={idx}>
+                <Coin />
               </CoinContainer>
             ))}
         </CoinsContainer>

@@ -62,6 +62,7 @@ const Table = ({ players }) => (
           <PlayerContainer
             user={user}
             seat={seatingChart[players.length - 2][idx]}
+            key={name}
           >
             <Player
               cards={cards}
