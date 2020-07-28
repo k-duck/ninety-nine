@@ -34,9 +34,10 @@ const Game = () => {
   const [players, setPlayers] = React.useState(initialPlayers);
   const [turn, setTurn] = React.useState(0);
   const [gameStarted, setGameStarted] = React.useState(false);
+  const [lastCardPlayed, setLastCardPlayed] = React.useState();
 
   const advanceTurn = () => {
-    // todo skip eliminated players
+    // todo skip eliminated players, reverse when 8 is played
     const nextTurn = (turn + 1) % players.length;
     setTurn(nextTurn);
   };
@@ -53,9 +54,9 @@ const Game = () => {
     setPlayers(newPlayers);
   }, [players, turn]);
 
-  console.log({ players });
-
   const playCard = card => {
+    setLastCardPlayed(card);
+
     const newPlayers = produce(players, draftPlayers => {
       const hand = draftPlayers[turn].cards;
       const cardIdx = hand.findIndex(
@@ -85,7 +86,7 @@ const Game = () => {
 
   return (
     <GameContext.Provider value={{ playCard }}>
-      <Table players={players}></Table>
+      <Table players={players} lastCardPlayed={lastCardPlayed}></Table>
     </GameContext.Provider>
   );
 };

@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Player from "../player/Player";
 import AspectRatioBox from "../card/AspectRatioBox";
+import Card from "../card/Card";
+import { ranks, suits } from "../cardDeck/constants";
 
 const seatingChart = [
   [0, 6],
@@ -54,7 +56,15 @@ const PlayerContainer = styled.div`
   top: ${props => seatingPositions[props.seat].y};
 `;
 
-const Table = ({ players }) => (
+const DiscardPile = styled.div`
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 12%;
+`;
+
+const Table = ({ players, lastCardPlayed }) => (
   <TableContainer>
     <AspectRatioBox ratio={0.5}>
       <TableShape>
@@ -73,13 +83,28 @@ const Table = ({ players }) => (
             />
           </PlayerContainer>
         ))}
+
+        {console.log({ lastCardPlayed })}
+        {lastCardPlayed && (
+          <DiscardPile>
+            <Card
+              rank={lastCardPlayed.rank}
+              suit={lastCardPlayed.suit}
+              faceUp
+            />
+          </DiscardPile>
+        )}
       </TableShape>
     </AspectRatioBox>
   </TableContainer>
 );
 
 Table.propTypes = {
-  players: PropTypes.array
+  players: PropTypes.array,
+  lastCardPlayed: PropTypes.shape({
+    rank: PropTypes.oneOf(ranks),
+    suit: PropTypes.oneOf(suits)
+  })
 };
 
 export default Table;
