@@ -1,4 +1,5 @@
 import React from "react";
+import produce from "immer";
 import Table from "../table/Table";
 import CardDeck from "../cardDeck/CardDeck";
 import { GameContext } from "./GameContext";
@@ -7,20 +8,20 @@ const initialPlayers = [
   {
     name: "Emberfire",
     user: true,
-    active: true,
+    active: false,
     cards: [],
     coins: 3
   },
   {
     name: "Renegade22",
-    user: false,
+    user: true,
     active: false,
     cards: [],
     coins: 3
   },
   {
     name: "NotAMoron",
-    user: false,
+    user: true,
     active: false,
     cards: [],
     coins: 1
@@ -31,19 +32,51 @@ const deck = new CardDeck();
 
 const Game = () => {
   const [players, setPlayers] = React.useState(initialPlayers);
+  const [turn, setTurn] = React.useState(0);
   const [gameStarted, setGameStarted] = React.useState(false);
 
+  const advanceTurn = () => {
+    // todo skip eliminated players
+    const nextTurn = (turn + 1) % players.length;
+    setTurn(nextTurn);
+  };
+
+  React.useEffect(() => {
+    if (players[turn].active) return;
+
+    const newPlayers = produce(players, draftPlayers => {
+      draftPlayers.forEach(player => {
+        player.active = false;
+      });
+      draftPlayers[turn].active = true;
+    });
+    setPlayers(newPlayers);
+  }, [players, turn]);
+
+  console.log({ players });
+
   const playCard = card => {
-    console.log({ card });
+    const newPlayers = produce(players, draftPlayers => {
+      const hand = draftPlayers[turn].cards;
+      const cardIdx = hand.findIndex(
+        handCard => handCard.rank === card.rank && handCard.suit === card.suit
+      );
+      deck.discardCard(hand[cardIdx]);
+      hand[cardIdx] = deck.dealCard();
+    });
+    setPlayers(newPlayers);
+    advanceTurn();
   };
 
   React.useEffect(() => {
     if (!gameStarted) {
-      const newPlayers = [...initialPlayers];
-      newPlayers.forEach(player => {
-        for (let i = 0; i < 3; i += 1) {
-          player.cards.push(deck.dealCard());
-        }
+      const newPlayers = produce(initialPlayers, draftPlayers => {
+        draftPlayers.forEach(player => {
+          for (let i = 0; i < 3; i += 1) {
+            player.cards.push(deck.dealCard());
+          }
+        });
+        draftPlayers[0].active = true;
       });
       setPlayers(newPlayers);
       setGameStarted(true);
