@@ -16,11 +16,22 @@ const CardContent = styled.div`
   background-color: white;
 `;
 
+const getCursor = ({ clickable, valid }) => {
+  if (!valid && clickable) {
+    return "not-allowed";
+  }
+  if (clickable) {
+    return "pointer";
+  }
+
+  return "auto";
+};
+
 const Border = styled.div`
   height: 100%;
   border-radius: 8%;
   padding: 3%;
-  cursor: ${props => (props.clickable ? "pointer" : "auto")};
+  cursor: ${props => getCursor(props)};
 `;
 
 const BorderColor = suit => ({
@@ -48,15 +59,20 @@ const CardBack = styled.div`
 `;
 
 const Card = ({ suit, rank, faceUp, active }) => {
-  const { playCard } = React.useContext(GameContext);
+  const { playCard, canCardBePlayed } = React.useContext(GameContext);
 
   return (
     <AspectRatioBox ratio={cardRatio}>
       {faceUp === true ? (
         <Border
           style={BorderColor(suit)}
-          onClick={active ? () => playCard({ rank, suit }) : undefined}
+          onClick={
+            active && canCardBePlayed(rank)
+              ? () => playCard({ rank, suit })
+              : undefined
+          }
           clickable={active}
+          valid={canCardBePlayed(rank)}
         >
           <CardContent>
             <SideColumn suit={suit} rank={rank} />
