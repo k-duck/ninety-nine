@@ -4,6 +4,8 @@ import Table from "../table/Table";
 import CardDeck from "../cardDeck/CardDeck";
 import { GameContext } from "./GameContext";
 
+const testMode = true;
+
 const initialPlayers = [
   {
     name: "Emberfire",
@@ -14,18 +16,25 @@ const initialPlayers = [
   },
   {
     name: "Renegade22",
-    user: true,
+    user: testMode,
     active: false,
     cards: [],
     coins: 3
   },
   {
     name: "NotAMoron",
-    user: true,
+    user: testMode,
     active: false,
     cards: [],
     coins: 1
   }
+  // {
+  //   name: "Tsunami",
+  //   user: testMode,
+  //   active: false,
+  //   cards: [],
+  //   coins: 1
+  // }
 ];
 
 const deck = new CardDeck();
@@ -35,12 +44,33 @@ const Game = () => {
   const [turn, setTurn] = React.useState(0);
   const [gameStarted, setGameStarted] = React.useState(false);
   const [lastCardPlayed, setLastCardPlayed] = React.useState();
+  const [currentScore, setCurrentScore] = React.useState(0);
 
   const advanceTurn = () => {
     // todo skip eliminated players, reverse when 8 is played
     const nextTurn = (turn + 1) % players.length;
     setTurn(nextTurn);
   };
+
+  const cardValue = rank => {
+    switch (rank) {
+      case "Q":
+      case "J":
+        return 10;
+      case 8:
+      case 9:
+      case "K":
+        return 0;
+      case "A":
+        return 1;
+      case 10:
+        return -10;
+      default:
+        return rank;
+    }
+  };
+
+  const canCardBePlayed = rank => !(currentScore + cardValue(rank) > 99);
 
   React.useEffect(() => {
     if (players[turn].active) return;
@@ -66,6 +96,12 @@ const Game = () => {
       hand[cardIdx] = deck.dealCard();
     });
     setPlayers(newPlayers);
+    if (card.rank === "K") {
+      setCurrentScore(99);
+    } else {
+      setCurrentScore(currentScore + cardValue(card.rank));
+    }
+
     advanceTurn();
   };
 
@@ -85,8 +121,12 @@ const Game = () => {
   }, [gameStarted]);
 
   return (
-    <GameContext.Provider value={{ playCard }}>
-      <Table players={players} lastCardPlayed={lastCardPlayed}></Table>
+    <GameContext.Provider value={{ playCard, canCardBePlayed }}>
+      <Table
+        players={players}
+        lastCardPlayed={lastCardPlayed}
+        currentScore={currentScore}
+      ></Table>
     </GameContext.Provider>
   );
 };

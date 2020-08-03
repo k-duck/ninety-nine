@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import ScaleText from "react-scale-text";
 import Player from "../player/Player";
 import AspectRatioBox from "../card/AspectRatioBox";
 import Card from "../card/Card";
@@ -56,15 +57,37 @@ const PlayerContainer = styled.div`
   top: ${props => seatingPositions[props.seat].y};
 `;
 
-const DiscardPile = styled.div`
+const TableCenter = styled.div`
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  width: 12%;
+  width: 50%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const Table = ({ players, lastCardPlayed }) => (
+const DiscardPile = styled.div`
+  width: 30%;
+`;
+
+const ScoreContainer = styled.div`
+  width: 10%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const Score = styled.span``;
+
+const Table = ({ players, lastCardPlayed, currentScore }) => (
   <TableContainer>
     <AspectRatioBox ratio={0.5}>
       <TableShape>
@@ -83,17 +106,22 @@ const Table = ({ players, lastCardPlayed }) => (
             />
           </PlayerContainer>
         ))}
-
-        {console.log({ lastCardPlayed })}
-        {lastCardPlayed && (
-          <DiscardPile>
-            <Card
-              rank={lastCardPlayed.rank}
-              suit={lastCardPlayed.suit}
-              faceUp
-            />
-          </DiscardPile>
-        )}
+        <TableCenter>
+          <ScoreContainer>
+            <ScaleText>
+              <Score>{currentScore}</Score>
+            </ScaleText>
+          </ScoreContainer>
+          {lastCardPlayed && (
+            <DiscardPile>
+              <Card
+                rank={lastCardPlayed.rank}
+                suit={lastCardPlayed.suit}
+                faceUp
+              />
+            </DiscardPile>
+          )}
+        </TableCenter>
       </TableShape>
     </AspectRatioBox>
   </TableContainer>
@@ -104,7 +132,8 @@ Table.propTypes = {
   lastCardPlayed: PropTypes.shape({
     rank: PropTypes.oneOf(ranks),
     suit: PropTypes.oneOf(suits)
-  })
+  }),
+  currentScore: PropTypes.number
 };
 
 export default Table;
