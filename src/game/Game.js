@@ -45,10 +45,12 @@ const Game = () => {
   const [gameStarted, setGameStarted] = React.useState(false);
   const [lastCardPlayed, setLastCardPlayed] = React.useState();
   const [currentScore, setCurrentScore] = React.useState(0);
+  const clockwise = React.useRef(true);
 
   const advanceTurn = () => {
-    // todo skip eliminated players, reverse when 8 is played
-    const nextTurn = (turn + 1) % players.length;
+    // todo skip eliminated players
+    const nextTurn =
+      (turn + (clockwise.current ? 1 : -1) + players.length) % players.length;
     setTurn(nextTurn);
   };
 
@@ -100,6 +102,9 @@ const Game = () => {
       setCurrentScore(99);
     } else {
       setCurrentScore(currentScore + cardValue(card.rank));
+    }
+    if (card.rank === 8) {
+      clockwise.current = !clockwise.current;
     }
 
     advanceTurn();

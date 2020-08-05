@@ -66,11 +66,12 @@ const TableCenter = styled.div`
   height: 60%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 `;
 
 const DiscardPile = styled.div`
-  width: 30%;
+  width: 20%;
 `;
 
 const ScoreContainer = styled.div`
