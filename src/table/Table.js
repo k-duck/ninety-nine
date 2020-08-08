@@ -86,7 +86,13 @@ const ScoreContainer = styled.div`
   }
 `;
 
-const Score = styled.span``;
+const Score = styled.span`
+  color: ${props => (props.currentScore > 89 ? "red" : "black")};
+  -webkit-text-stroke: 1px
+    ${props => (props.currentScore > 89 ? "black" : "none")};
+  -webkit-text-fill-color: ${props =>
+    props.currentScore > 89 ? "red" : "black"};
+`;
 
 const Table = ({ players, lastCardPlayed, currentScore }) => (
   <TableContainer>
@@ -110,7 +116,7 @@ const Table = ({ players, lastCardPlayed, currentScore }) => (
         <TableCenter>
           <ScoreContainer>
             <ScaleText>
-              <Score>{currentScore}</Score>
+              <Score currentScore={currentScore}>{currentScore}</Score>
             </ScaleText>
           </ScoreContainer>
           {lastCardPlayed && (
