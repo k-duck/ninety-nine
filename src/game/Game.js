@@ -39,6 +39,36 @@ const initialPlayers = [
   // }
 ];
 
+const GameContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const HandOverToast = styled.div`
+  position: absolute;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: 30%;
+  height: 15%;
+  padding: 2%;
+  border: 2px solid black;
+`;
+
+const LosingText = styled.span`
+  color: red;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const deck = new CardDeck();
 
 const Game = () => {
@@ -140,36 +170,6 @@ const Game = () => {
     });
     setPlayers(newPlayers);
   }, []);
-
-  const GameContainer = styled.div`
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `;
-
-  const HandOverToast = styled.div`
-    position: absolute;
-    background-color: white;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    z-index: 2;
-    width: 30%;
-    height: 15%;
-    padding: 2%;
-    border: 2px solid black;
-  `;
-
-  const LosingText = styled.span`
-    color: red;
-    width: 100%;
-    height: 100%;
-    white-space: nowrap;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `;
 
   return (
     <GameContext.Provider value={{ playCard, canCardBePlayed }}>
