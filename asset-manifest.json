@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ninety-nine/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/ninety-nine/static/js/main.58ff0786.chunk.js",
+    "main.js.map": "/ninety-nine/static/js/main.58ff0786.chunk.js.map",
+    "runtime-main.js": "/ninety-nine/static/js/runtime-main.524118d7.js",
+    "runtime-main.js.map": "/ninety-nine/static/js/runtime-main.524118d7.js.map",
+    "static/js/2.1b6093dd.chunk.js": "/ninety-nine/static/js/2.1b6093dd.chunk.js",
+    "static/js/2.1b6093dd.chunk.js.map": "/ninety-nine/static/js/2.1b6093dd.chunk.js.map",
+    "index.html": "/ninety-nine/index.html",
+    "precache-manifest.affeeeef6a7e40531cbf8a6d3a68d198.js": "/ninety-nine/precache-manifest.affeeeef6a7e40531cbf8a6d3a68d198.js",
+    "service-worker.js": "/ninety-nine/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/ninety-nine/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.1b6093dd.chunk.js.LICENSE.txt": "/ninety-nine/static/js/2.1b6093dd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.524118d7.js",
+    "static/js/2.1b6093dd.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.58ff0786.chunk.js"
+  ]
+}
